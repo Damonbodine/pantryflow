@@ -1,6 +1,7 @@
 "use client";
 
-import { useQuery } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
+
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,7 @@ import { Pencil, Users, Phone, Mail, MapPin } from "lucide-react";
 import type { Id } from "../../../convex/_generated/dataModel";
 
 export function ClientDetail({ clientId }: { clientId: Id<"clients"> }) {
-  const client = useQuery(api.clients.getById, { id: clientId });
+  const client = useAuthedQuery(api.clients.getById, { id: clientId });
 
   if (!client) return <LoadingSkeleton variant="detail" />;
 
@@ -68,7 +69,7 @@ export function ClientDetail({ clientId }: { clientId: Id<"clients"> }) {
             <div className="flex items-center gap-2"><Users className="h-4 w-4 text-muted-foreground" /><span className="font-medium">{client.householdSize} members</span></div>
             {client.householdMinors != null && <div className="flex justify-between"><span className="text-muted-foreground">Children (under 18)</span><span>{client.householdMinors}</span></div>}
             {client.householdSeniors != null && <div className="flex justify-between"><span className="text-muted-foreground">Seniors (65+)</span><span>{client.householdSeniors}</span></div>}
-            {client.dietaryRestrictions && <div className="flex justify-between"><span className="text-muted-foreground">Dietary</span><span>{client.dietaryRestrictions}</span></div>}
+            {client.dietaryRestrictions && client.dietaryRestrictions.length > 0 && <div className="flex justify-between"><span className="text-muted-foreground">Dietary</span><span>{client.dietaryRestrictions.join(", ")}</span></div>}
             <div className="flex justify-between"><span className="text-muted-foreground">Last Visit</span><span>{client.lastVisitAt ? new Date(client.lastVisitAt).toLocaleDateString() : "Never"}</span></div>
             <div className="flex justify-between"><span className="text-muted-foreground">Registered</span><span>{new Date(client.createdAt).toLocaleDateString()}</span></div>
           </CardContent>

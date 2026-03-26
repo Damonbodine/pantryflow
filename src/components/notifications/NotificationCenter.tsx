@@ -1,6 +1,7 @@
 "use client";
 
-import { useQuery, useMutation } from "convex/react";
+import { useMutation } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,7 @@ import Link from "next/link";
 import { Check, CheckCheck, AlertTriangle, Info, AlertCircle } from "lucide-react";
 
 export function NotificationCenter() {
-  const notifications = useQuery(api.notifications.listByUser, {});
+  const notifications = useAuthedQuery(api.notifications.listByUser, {});
   const markAsRead = useMutation(api.notifications.markAsRead);
   const markAllAsRead = useMutation(api.notifications.markAllAsRead);
 

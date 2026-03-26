@@ -3,7 +3,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
 import { api } from "../../../convex/_generated/api";
 import { Id } from "../../../convex/_generated/dataModel";
 import { useRouter } from "next/navigation";
@@ -46,7 +47,7 @@ export function TransferForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const transferItem = useMutation(api.inventoryItems.transfer);
-  const locations = useQuery(api.locations.list, {});
+  const locations = useAuthedQuery(api.locations.list, {});
 
   const form = useForm<TransferFormValues>({
     resolver: zodResolver(transferFormSchema) as any,
@@ -60,7 +61,7 @@ export function TransferForm() {
 
   const selectedSourceLocationId = form.watch("sourceLocationId");
 
-  const inventoryItems = useQuery(
+  const inventoryItems = useAuthedQuery(
     api.inventoryItems.listByLocation,
     selectedSourceLocationId
       ? { locationId: selectedSourceLocationId as Id<"locations">, excludeExpired: true }

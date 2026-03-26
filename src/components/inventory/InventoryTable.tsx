@@ -1,7 +1,8 @@
 "use client";
 
+import { useAuthedQuery } from "@/hooks/use-authed-query";
+
 import { useState } from "react";
-import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -24,7 +25,7 @@ export function InventoryTable() {
   const [page, setPage] = useState(0);
   const pageSize = 20;
 
-  const items = useQuery(api.inventoryItems.list, {
+  const items = useAuthedQuery(api.inventoryItems.list, {
     ...(category !== "all" ? { category: category as any } : {}),
     ...(status !== "all" ? { status: status as any } : {}),
     ...(storageType !== "all" ? { storageType: storageType as any } : {}),

@@ -1,7 +1,8 @@
 "use client";
 
+import { useAuthedQuery } from "@/hooks/use-authed-query";
+
 import { useState } from "react";
-import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -20,7 +21,7 @@ export function DonorList() {
   const [page, setPage] = useState(0);
   const pageSize = 20;
 
-  const donors = useQuery(api.donors.list, {
+  const donors = useAuthedQuery(api.donors.list, {
     ...(type !== "all" ? { type: type as any } : {}),
   });
 

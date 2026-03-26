@@ -1,7 +1,8 @@
 "use client";
 
+import { useAuthedQuery } from "@/hooks/use-authed-query";
+
 import { useState } from "react";
-import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -16,9 +17,9 @@ import Link from "next/link";
 export function ExpirationTracker() {
   const [activeTab, setActiveTab] = useState("3");
 
-  const expiring3 = useQuery(api.inventoryItems.listExpiring, { daysUntilExpiry: 3 });
-  const expiring7 = useQuery(api.inventoryItems.listExpiring, { daysUntilExpiry: 7 });
-  const expiring14 = useQuery(api.inventoryItems.listExpiring, { daysUntilExpiry: 14 });
+  const expiring3 = useAuthedQuery(api.inventoryItems.listExpiring, { daysUntilExpiry: 3 });
+  const expiring7 = useAuthedQuery(api.inventoryItems.listExpiring, { daysUntilExpiry: 7 });
+  const expiring14 = useAuthedQuery(api.inventoryItems.listExpiring, { daysUntilExpiry: 14 });
 
   const getItems = () => {
     switch (activeTab) {

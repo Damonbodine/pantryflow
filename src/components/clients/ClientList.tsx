@@ -1,7 +1,8 @@
 "use client";
 
+import { useAuthedQuery } from "@/hooks/use-authed-query";
+
 import { useState } from "react";
-import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
@@ -22,11 +23,11 @@ export function ClientList() {
   const [page, setPage] = useState(0);
   const pageSize = 20;
 
-  const clients = useQuery(api.clients.list, {
+  const clients = useAuthedQuery(api.clients.list, {
     ...(eligibility !== "all" ? { eligibilityStatus: eligibility as any } : {}),
   });
 
-  const searchResults = useQuery(
+  const searchResults = useAuthedQuery(
     api.clients.search,
     searchQuery.length >= 2 ? { query: searchQuery } : "skip"
   );

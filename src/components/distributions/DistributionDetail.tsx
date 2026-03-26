@@ -1,6 +1,7 @@
 "use client";
 
-import { useQuery, useMutation } from "convex/react";
+import { useMutation } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,8 +15,8 @@ import { Play, CheckCircle, UserCheck, Package } from "lucide-react";
 import type { Id } from "../../../convex/_generated/dataModel";
 
 export function DistributionDetail({ distributionId }: { distributionId: Id<"distributions"> }) {
-  const dist = useQuery(api.distributions.getById, { id: distributionId });
-  const records = useQuery(api.distributionRecords.listByDistribution, { distributionId });
+  const dist = useAuthedQuery(api.distributions.getById, { id: distributionId });
+  const records = useAuthedQuery(api.distributionRecords.listByDistribution, { distributionId });
   const updateStatus = useMutation(api.distributions.updateStatus);
   const completeDist = useMutation(api.distributions.complete);
   const [isUpdating, setIsUpdating] = useState(false);

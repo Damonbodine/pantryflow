@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { useQuery } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
+
+import { useState, useMemo } from "react";
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -24,10 +25,10 @@ function getDateRange(range: DateRange): { startDate: number; endDate: number } 
 
 export function ImpactDashboard() {
   const [dateRange, setDateRange] = useState<DateRange>("month");
-  const { startDate, endDate } = getDateRange(dateRange);
+  const { startDate, endDate } = useMemo(() => getDateRange(dateRange), [dateRange]);
 
-  const stats = useQuery(api.dashboard.getImpactStats, { startDate, endDate });
-  const topDonors = useQuery(api.donors.listTopDonors, { limit: 10 });
+  const stats = useAuthedQuery(api.dashboard.getImpactStats, { startDate, endDate });
+  const topDonors = useAuthedQuery(api.donors.listTopDonors, { limit: 10 });
 
   if (!stats) return <LoadingSkeleton variant="dashboard" />;
 

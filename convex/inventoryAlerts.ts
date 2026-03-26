@@ -118,7 +118,10 @@ export const checkExpirations = internalMutation({
     const sevenDays = 7 * 24 * 60 * 60 * 1000;
     const fourteenDays = 14 * 24 * 60 * 60 * 1000;
 
-    const items = await ctx.db.query("inventoryItems").collect();
+    const items = await ctx.db
+      .query("inventoryItems")
+      .withIndex("by_expirationDate")
+      .collect();
     for (const item of items) {
       if (!item.expirationDate || item.status === "WrittenOff") continue;
       const daysUntil = item.expirationDate - now;
@@ -168,7 +171,20 @@ export const checkLowStock = internalMutation({
   args: {},
   handler: async (ctx) => {
     const now = Date.now();
-    const items = await ctx.db.query("inventoryItems").collect();
+    // Use by_status index to get only InStock/Low items (items that could trigger low stock alerts)
+    const inStockItems = await ctx.db
+      .query("inventoryItems")
+      .withIndex("by_status", (q) => q.eq("status", "InStock"))
+      .collect();
+    const lowItems = await ctx.db
+      .query("inventoryItems")
+      .withIndex("by_status", (q) => q.eq("status", "Low"))
+      .collect();
+    const criticalItems = await ctx.db
+      .query("inventoryItems")
+      .withIndex("by_status", (q) => q.eq("status", "Critical"))
+      .collect();
+    const items = [...inStockItems, ...lowItems, ...criticalItems];
 
     for (const item of items) {
       if (item.status === "WrittenOff" || item.status === "Expired") continue;

@@ -1,6 +1,7 @@
 "use client";
 
-import { useQuery } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
+
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -13,8 +14,8 @@ import { Pencil, Gift, Phone, Mail, MapPin } from "lucide-react";
 import type { Id } from "../../../convex/_generated/dataModel";
 
 export function DonorDetail({ donorId }: { donorId: Id<"donors"> }) {
-  const donor = useQuery(api.donors.getById, { id: donorId });
-  const donationHistory = useQuery(api.donationBatches.listByDonor, { donorId });
+  const donor = useAuthedQuery(api.donors.getById, { id: donorId });
+  const donationHistory = useAuthedQuery(api.donationBatches.listByDonor, { donorId });
 
   if (!donor) return <LoadingSkeleton variant="detail" />;
 

@@ -1,7 +1,8 @@
 "use client";
 
+import { useAuthedQuery } from "@/hooks/use-authed-query";
+
 import { useState } from "react";
-import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -17,7 +18,7 @@ const locationTypes = ["Warehouse", "Pantry", "Mobile"] as const;
 export function LocationList() {
   const [type, setType] = useState<string>("all");
 
-  const locations = useQuery(api.locations.list, {
+  const locations = useAuthedQuery(api.locations.list, {
     ...(type !== "all" ? { type: type as any } : {}),
   });
 

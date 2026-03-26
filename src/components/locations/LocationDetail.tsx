@@ -1,6 +1,7 @@
 "use client";
 
-import { useQuery } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
+
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,9 +15,9 @@ import { Pencil, MapPin, Phone, Clock, Snowflake, Thermometer, Box } from "lucid
 import type { Id } from "../../../convex/_generated/dataModel";
 
 export function LocationDetail({ locationId }: { locationId: Id<"locations"> }) {
-  const location = useQuery(api.locations.getById, { id: locationId });
-  const inventory = useQuery(api.inventoryItems.listByLocation, { locationId });
-  const alerts = useQuery(api.inventoryAlerts.listByLocation, { locationId, isResolved: false });
+  const location = useAuthedQuery(api.locations.getById, { id: locationId });
+  const inventory = useAuthedQuery(api.inventoryItems.listByLocation, { locationId });
+  const alerts = useAuthedQuery(api.inventoryAlerts.listByLocation, { locationId, isResolved: false });
 
   if (!location) return <LoadingSkeleton variant="detail" />;
 

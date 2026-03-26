@@ -1,0 +1,38 @@
+[    1861ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[    1992ms] Error: [CONVEX Q(notifications:getUnreadCount)] [Request ID: 88b79fc7f5aeed28] Server Error
+Uncaught Error: UNAUTHENTICATED: You must be logged in to perform this action.
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at OptimisticQueryResults.queryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:2697:19)
+    at BaseConvexClient.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4559:44)
+    at Object.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6534:44)
+    at QueriesObserver.getLocalResults (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6091:31)
+    at useQueriesHelper.useMemo[subscription] (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6294:41)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6206:43)
+    at basicStateReducer (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4797:47)
+    at updateReducerImpl (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4879:79)
+    at updateReducer (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4829:16)
+    at Object.useState (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15492:24)
+    at exports.useState (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:1754:36)
+    at useSubscription (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6177:205)
+    at useQueriesHelper (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6308:201)
+    at useQueries (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6274:12)
+    at useQuery (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6771:200)
+    at NotificationBell (http://localhost:3002/_next/static/chunks/_0vcv.u~._.js:1839:197)
+    at Object.react_stack_bottom_frame (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15037:24)
+    at renderWithHooks (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4620:24)
+    at updateFunctionComponent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6081:21)
+    at beginWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6691:24)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9555:97)
+    at workLoopSync (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9449:40)
+    at renderRootSync (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9433:13)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9098:47)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)

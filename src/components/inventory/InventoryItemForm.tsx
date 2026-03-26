@@ -3,7 +3,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
 import { api } from "../../../convex/_generated/api";
 import { Id } from "../../../convex/_generated/dataModel";
 import { useRouter } from "next/navigation";
@@ -79,7 +80,7 @@ export function InventoryItemForm({ initialData }: InventoryItemFormProps) {
 
   const createItem = useMutation(api.inventoryItems.create);
   const updateItem = useMutation(api.inventoryItems.update);
-  const locations = useQuery(api.locations.list, {});
+  const locations = useAuthedQuery(api.locations.list, {});
 
   const isEditing = !!initialData;
 

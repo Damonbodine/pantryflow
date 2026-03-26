@@ -8,7 +8,14 @@ export const listByUser = query({
     limit: v.optional(v.number()),
   },
   handler: async (ctx, args) => {
-    const currentUser = await getCurrentUser(ctx);
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) return [];
+
+    const currentUser = await ctx.db
+      .query("users")
+      .withIndex("by_clerkId", (q) => q.eq("clerkId", identity.subject))
+      .unique();
+    if (!currentUser) return [];
 
     const notifications = await ctx.db
       .query("notifications")
@@ -26,11 +33,18 @@ export const listByUser = query({
 export const getUnreadCount = query({
   args: {},
   handler: async (ctx) => {
-    const currentUser = await getCurrentUser(ctx);
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) return null;
+
+    const user = await ctx.db
+      .query("users")
+      .withIndex("by_clerkId", (q) => q.eq("clerkId", identity.subject))
+      .unique();
+    if (!user) return null;
 
     const notifications = await ctx.db
       .query("notifications")
-      .withIndex("by_userId", (q) => q.eq("userId", currentUser._id))
+      .withIndex("by_userId", (q) => q.eq("userId", user._id))
       .collect();
 
     return notifications.filter((n) => !n.isRead).length;
@@ -120,11 +134,11 @@ export const sendDistributionReminders = internalMutation({
 
     for (const dist of upcoming) {
       const allStaffIds = [dist.leadId, ...dist.assignedStaffIds];
-      const uniqueStaffIds = [...new Set(allStaffIds.map(String))];
+      const uniqueStaffIds = [...new Set(allStaffIds)];
 
-      for (const staffIdStr of uniqueStaffIds) {
+      for (const staffId of uniqueStaffIds) {
         await ctx.db.insert("notifications", {
-          userId: staffIdStr as any,
+          userId: staffId,
           type: "DistributionReminder",
           title: `Upcoming Distribution: ${dist.name}`,
           message: `Distribution "${dist.name}" is scheduled within the next 24 hours.`,

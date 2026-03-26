@@ -100,9 +100,18 @@ export const delete_ = mutation({
 
     const inventoryItem = await ctx.db.get(lineItem.inventoryItemId);
     if (inventoryItem) {
+      const restoredQuantity = inventoryItem.quantity + lineItem.quantity;
+      const restoredStatus =
+        inventoryItem.status === "Expired" || inventoryItem.status === "WrittenOff"
+          ? inventoryItem.status
+          : restoredQuantity === 0
+            ? "Critical"
+            : inventoryItem.minStockLevel && restoredQuantity <= inventoryItem.minStockLevel
+              ? "Low"
+              : "InStock";
       await ctx.db.patch(lineItem.inventoryItemId, {
-        quantity: inventoryItem.quantity + lineItem.quantity,
-        status: "InStock",
+        quantity: restoredQuantity,
+        status: restoredStatus,
         updatedAt: Date.now(),
       });
     }

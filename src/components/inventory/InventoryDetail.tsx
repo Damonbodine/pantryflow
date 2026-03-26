@@ -1,6 +1,7 @@
 "use client";
 
-import { useQuery, useMutation } from "convex/react";
+import { useMutation } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -18,7 +19,7 @@ import type { Id } from "../../../convex/_generated/dataModel";
 const writeOffReasons = ["Expired", "Damaged", "Recalled", "Other"] as const;
 
 export function InventoryDetail({ itemId }: { itemId: Id<"inventoryItems"> }) {
-  const item = useQuery(api.inventoryItems.getById, { id: itemId });
+  const item = useAuthedQuery(api.inventoryItems.getById, { id: itemId });
   const writeOff = useMutation(api.inventoryItems.writeOff);
   const router = useRouter();
   const [writeOffReason, setWriteOffReason] = useState<string>("Expired");

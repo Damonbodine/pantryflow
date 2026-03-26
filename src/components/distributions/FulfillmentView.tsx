@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useQuery, useMutation } from "convex/react";
+import { useMutation } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -20,10 +21,10 @@ export function FulfillmentView({
   distributionId: Id<"distributions">;
   recordId: Id<"distributionRecords">;
 }) {
-  const record = useQuery(api.distributionRecords.getById, { id: recordId });
-  const lineItems = useQuery(api.distributionLineItems.listByRecord, { distributionRecordId: recordId });
-  const dist = useQuery(api.distributions.getById, { id: distributionId });
-  const availableItems = useQuery(
+  const record = useAuthedQuery(api.distributionRecords.getById, { id: recordId });
+  const lineItems = useAuthedQuery(api.distributionLineItems.listByRecord, { distributionRecordId: recordId });
+  const dist = useAuthedQuery(api.distributions.getById, { id: distributionId });
+  const availableItems = useAuthedQuery(
     api.inventoryItems.listByLocation,
     dist ? { locationId: dist.locationId } : "skip"
   );

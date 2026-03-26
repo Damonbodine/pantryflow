@@ -1,6 +1,7 @@
 "use client";
 
-import { useQuery, useMutation } from "convex/react";
+import { useMutation } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,7 @@ import { CheckCircle } from "lucide-react";
 import type { Id } from "../../../convex/_generated/dataModel";
 
 export function DonationDetail({ batchId }: { batchId: Id<"donationBatches"> }) {
-  const batch = useQuery(api.donationBatches.getById, { id: batchId });
+  const batch = useAuthedQuery(api.donationBatches.getById, { id: batchId });
   const updateStatus = useMutation(api.donationBatches.updateStatus);
   const [isUpdating, setIsUpdating] = useState(false);
 

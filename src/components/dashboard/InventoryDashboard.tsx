@@ -1,6 +1,7 @@
 "use client";
 
-import { useQuery } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
+
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -12,8 +13,8 @@ import Link from "next/link";
 import { Package, AlertTriangle, Gift, Truck, Plus, ArrowRight } from "lucide-react";
 
 export function InventoryDashboard() {
-  const stats = useQuery(api.dashboard.getInventoryStats, {});
-  const alerts = useQuery(api.inventoryAlerts.list, { isResolved: false });
+  const stats = useAuthedQuery(api.dashboard.getInventoryStats, {});
+  const alerts = useAuthedQuery(api.inventoryAlerts.list, { isResolved: false });
 
   if (!stats) return <LoadingSkeleton variant="dashboard" />;
 

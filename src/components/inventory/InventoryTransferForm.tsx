@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useQuery, useMutation } from "convex/react";
+import { useMutation } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,7 +15,7 @@ import { useRouter } from "next/navigation";
 import type { Id } from "../../../convex/_generated/dataModel";
 
 export function InventoryTransferForm() {
-  const locations = useQuery(api.locations.list, { isActive: true });
+  const locations = useAuthedQuery(api.locations.list, { isActive: true });
   const transfer = useMutation(api.inventoryItems.transfer);
   const router = useRouter();
 
@@ -24,7 +25,7 @@ export function InventoryTransferForm() {
   const [quantity, setQuantity] = useState<number>(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const sourceItems = useQuery(
+  const sourceItems = useAuthedQuery(
     api.inventoryItems.listByLocation,
     fromLocationId ? { locationId: fromLocationId as Id<"locations"> } : "skip"
   );

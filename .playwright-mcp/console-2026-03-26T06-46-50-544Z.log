@@ -1,0 +1,285 @@
+[     673ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   24071ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   28403ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   32290ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   36364ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   40474ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   40749ms] Error: [CONVEX Q(notifications:getUnreadCount)] [Request ID: fbf8e2a88ebe8854] Server Error
+Uncaught Error: UNAUTHENTICATED: You must be logged in to perform this action.
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at OptimisticQueryResults.queryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:2697:19)
+    at BaseConvexClient.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4559:44)
+    at Object.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6534:44)
+    at QueriesObserver.getLocalResults (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6091:31)
+    at useQueriesHelper.useMemo[subscription] (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6294:41)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6206:43)
+    at basicStateReducer (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4797:47)
+    at dispatchSetStateInternal (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5634:78)
+    at dispatchSetState (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5615:9)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6201:21)
+    at QueriesObserver.notifyListeners (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6158:13)
+    at http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6137:53
+    at ConvexReactClient.transition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6736:21)
+    at ConvexReactClient.handleTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6726:14)
+    at PaginatedQueryClient.onTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6447:289)
+    at PaginatedQueryClient.onBaseTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4988:14)
+    at http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4872:63
+    at BaseConvexClient.handleTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4466:13)
+    at BaseConvexClient.notifyOnQueryResultChanges (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4446:14)
+    at WebSocketManager.onMessage (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4357:34)
+    at ws.onmessage (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:3306:35)
+[   44513ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   44620ms] Error: [CONVEX Q(notifications:getUnreadCount)] [Request ID: 8a48f9732ce6db08] Server Error
+Uncaught Error: UNAUTHENTICATED: You must be logged in to perform this action.
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at OptimisticQueryResults.queryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:2697:19)
+    at BaseConvexClient.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4559:44)
+    at Object.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6534:44)
+    at QueriesObserver.getLocalResults (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6091:31)
+    at useQueriesHelper.useMemo[subscription] (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6294:41)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6206:43)
+    at basicStateReducer (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4797:47)
+    at dispatchSetStateInternal (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5634:78)
+    at dispatchSetState (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5615:9)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6201:21)
+    at QueriesObserver.notifyListeners (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6158:13)
+    at http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6137:53
+    at ConvexReactClient.transition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6736:21)
+    at ConvexReactClient.handleTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6726:14)
+    at PaginatedQueryClient.onTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6447:289)
+    at PaginatedQueryClient.onBaseTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4988:14)
+    at http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4872:63
+    at BaseConvexClient.handleTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4466:13)
+    at BaseConvexClient.notifyOnQueryResultChanges (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4446:14)
+    at WebSocketManager.onMessage (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4357:34)
+    at ws.onmessage (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:3306:35)
+[   48733ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   53089ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   58261ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   64341ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   70514ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   77384ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   82081ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   85581ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   85710ms] Error: [CONVEX Q(notifications:getUnreadCount)] [Request ID: fa15002804e2903f] Server Error
+Uncaught Error: UNAUTHENTICATED: You must be logged in to perform this action.
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at OptimisticQueryResults.queryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:2697:19)
+    at BaseConvexClient.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4559:44)
+    at Object.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6534:44)
+    at QueriesObserver.getLocalResults (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6091:31)
+    at useQueriesHelper.useMemo[subscription] (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6294:41)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6206:43)
+    at basicStateReducer (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4797:47)
+    at dispatchSetStateInternal (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5634:78)
+    at dispatchSetState (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5615:9)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6201:21)
+    at QueriesObserver.notifyListeners (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6158:13)
+    at http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6137:53
+    at ConvexReactClient.transition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6736:21)
+    at ConvexReactClient.handleTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6726:14)
+    at PaginatedQueryClient.onTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6447:289)
+    at PaginatedQueryClient.onBaseTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4988:14)
+    at http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4872:63
+    at BaseConvexClient.handleTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4466:13)
+    at BaseConvexClient.notifyOnQueryResultChanges (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4446:14)
+    at WebSocketManager.onMessage (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4357:34)
+    at ws.onmessage (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:3306:35)
+[   90058ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   90296ms] Error: [CONVEX Q(notifications:getUnreadCount)] [Request ID: 30542fb34e3fe975] Server Error
+Uncaught Error: UNAUTHENTICATED: You must be logged in to perform this action.
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at OptimisticQueryResults.queryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:2697:19)
+    at BaseConvexClient.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4559:44)
+    at Object.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6534:44)
+    at QueriesObserver.getLocalResults (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6091:31)
+    at useQueriesHelper.useMemo[subscription] (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6294:41)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6206:43)
+    at basicStateReducer (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4797:47)
+    at dispatchSetStateInternal (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5634:78)
+    at dispatchSetState (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5615:9)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6201:21)
+    at QueriesObserver.notifyListeners (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6158:13)
+    at http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6137:53
+    at ConvexReactClient.transition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6736:21)
+    at ConvexReactClient.handleTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6726:14)
+    at PaginatedQueryClient.onTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6447:289)
+    at PaginatedQueryClient.onBaseTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4988:14)
+    at http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4872:63
+    at BaseConvexClient.handleTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4466:13)
+    at BaseConvexClient.notifyOnQueryResultChanges (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4446:14)
+    at WebSocketManager.onMessage (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4357:34)
+    at ws.onmessage (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:3306:35)
+[   94268ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   98477ms] [ERROR] Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render. @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   98717ms] Error: [CONVEX Q(notifications:getUnreadCount)] [Request ID: bf329f8a8523acc7] Server Error
+Uncaught Error: UNAUTHENTICATED: You must be logged in to perform this action.
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at OptimisticQueryResults.queryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:2697:19)
+    at BaseConvexClient.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4559:44)
+    at Object.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6534:44)
+    at QueriesObserver.getLocalResults (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6091:31)
+    at useQueriesHelper.useMemo[subscription] (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6294:41)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6206:43)
+    at basicStateReducer (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4797:47)
+    at updateReducerImpl (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4879:79)
+    at updateReducer (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4829:16)
+    at Object.useState (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15492:24)
+    at exports.useState (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:1754:36)
+    at useSubscription (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6177:205)
+    at useQueriesHelper (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6308:201)
+    at useQueries (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6274:12)
+    at useQuery (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6771:200)
+    at NotificationBell (http://localhost:3002/_next/static/chunks/_0vcv.u~._.js:1839:197)
+    at Object.react_stack_bottom_frame (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15037:24)
+    at renderWithHooks (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4620:24)
+    at updateFunctionComponent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6081:21)
+    at beginWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6691:24)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9555:97)
+    at workLoopSync (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9449:40)
+    at renderRootSync (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9433:13)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9098:47)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[   98795ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  204230ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  204370ms] Error: [CONVEX Q(notifications:getUnreadCount)] [Request ID: d2e70d1f9ede9f78] Server Error
+Uncaught Error: UNAUTHENTICATED: You must be logged in to perform this action.
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at OptimisticQueryResults.queryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:2697:19)
+    at BaseConvexClient.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4559:44)
+    at Object.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6534:44)
+    at QueriesObserver.getLocalResults (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6091:31)
+    at useQueriesHelper.useMemo[subscription] (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6294:41)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6206:43)
+    at basicStateReducer (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4797:47)
+    at dispatchSetStateInternal (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5634:78)
+    at dispatchSetState (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5615:9)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6201:21)
+    at QueriesObserver.notifyListeners (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6158:13)
+    at http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6137:53
+    at ConvexReactClient.transition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6736:21)
+    at ConvexReactClient.handleTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6726:14)
+    at PaginatedQueryClient.onTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6447:289)
+    at PaginatedQueryClient.onBaseTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4988:14)
+    at http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4872:63
+    at BaseConvexClient.handleTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4466:13)
+    at BaseConvexClient.notifyOnQueryResultChanges (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4446:14)
+    at WebSocketManager.onMessage (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4357:34)
+    at ws.onmessage (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:3306:35)
+[  207490ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  207597ms] Error: [CONVEX Q(notifications:getUnreadCount)] [Request ID: 191d2314ac4ce20a] Server Error
+Uncaught Error: UNAUTHENTICATED: You must be logged in to perform this action.
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at OptimisticQueryResults.queryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:2697:19)
+    at BaseConvexClient.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4559:44)
+    at Object.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6534:44)
+    at QueriesObserver.getLocalResults (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6091:31)
+    at useQueriesHelper.useMemo[subscription] (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6294:41)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6206:43)
+    at basicStateReducer (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4797:47)
+    at updateReducerImpl (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4879:79)
+    at updateReducer (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4829:16)
+    at Object.useState (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15492:24)
+    at exports.useState (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:1754:36)
+    at useSubscription (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6177:205)
+    at useQueriesHelper (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6308:201)
+    at useQueries (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6274:12)
+    at useQuery (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6771:200)
+    at NotificationBell (http://localhost:3002/_next/static/chunks/_0vcv.u~._.js:1839:197)
+    at Object.react_stack_bottom_frame (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15037:24)
+    at renderWithHooks (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4620:24)
+    at updateFunctionComponent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6081:21)
+    at beginWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6691:24)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9555:97)
+    at workLoopSync (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9449:40)
+    at renderRootSync (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9433:13)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9098:47)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+[  209680ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  215527ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  219300ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  225320ms] [WARNING] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  225775ms] Error: [CONVEX Q(notifications:getUnreadCount)] [Request ID: b85ae41c9c102343] Server Error
+Uncaught Error: UNAUTHENTICATED: You must be logged in to perform this action.
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at getCurrentUser (../../convex/lib/auth.ts:6:21)
+    at async handler (../convex/notifications.ts:30:26)
+
+  Called by client
+    at OptimisticQueryResults.queryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:2697:19)
+    at BaseConvexClient.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4559:44)
+    at Object.localQueryResult (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6534:44)
+    at QueriesObserver.getLocalResults (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6091:31)
+    at useQueriesHelper.useMemo[subscription] (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6294:41)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6206:43)
+    at basicStateReducer (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4797:47)
+    at dispatchSetStateInternal (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5634:78)
+    at dispatchSetState (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5615:9)
+    at useSubscription.useEffect.checkForUpdates (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6201:21)
+    at QueriesObserver.notifyListeners (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6158:13)
+    at http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6137:53
+    at ConvexReactClient.transition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6736:21)
+    at ConvexReactClient.handleTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6726:14)
+    at PaginatedQueryClient.onTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:6447:289)
+    at PaginatedQueryClient.onBaseTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4988:14)
+    at http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4872:63
+    at BaseConvexClient.handleTransition (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4466:13)
+    at BaseConvexClient.notifyOnQueryResultChanges (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4446:14)
+    at WebSocketManager.onMessage (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:4357:34)
+    at ws.onmessage (http://localhost:3002/_next/static/chunks/node_modules_convex_dist_esm_00xikuf._.js:3306:35)

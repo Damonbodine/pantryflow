@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
 import { api } from "../../../convex/_generated/api";
 import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
@@ -25,7 +25,7 @@ interface RoleGuardProps {
 export function RoleGuard({ allowedRoles, children }: RoleGuardProps) {
   const { userId } = useAuth();
   const router = useRouter();
-  const currentUser = useQuery(
+  const currentUser = useAuthedQuery(
     api.users.getByClerkId,
     userId ? { clerkId: userId } : "skip"
   );

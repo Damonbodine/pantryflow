@@ -1,6 +1,8 @@
-import { mutation } from "./_generated/server";
+import { v } from "convex/values";
+import { internalMutation, internalQuery } from "./_generated/server";
+// QA helper functions added below seed - can be removed after QA
 
-export const seed = mutation({
+export const seed = internalMutation({
   args: {},
   handler: async (ctx) => {
     // ── Clear all tables ──────────────────────────────────────────────
@@ -112,7 +114,7 @@ export const seed = mutation({
 
     // ── 3. Users ──────────────────────────────────────────────────────
     const user1 = await ctx.db.insert("users", {
-      clerkId: "user_admin_001",
+      clerkId: "user_3BUBIHEfymSwNz8r2MMtg1Gq1zf",
       name: "Maria Gonzalez",
       email: "maria@austinfoodbank.org",
       phone: "(512) 555-1001",
@@ -287,6 +289,25 @@ export const seed = mutation({
       lastDonationAt: now - 7 * DAY,
       isActive: true,
       createdAt: now - 30 * DAY,
+    });
+
+    const donor4 = await ctx.db.insert("donors", {
+      organizationId: orgId,
+      name: "Central Texas Food Drive Coalition",
+      type: "FoodDrive",
+      contactName: "Angela Reyes",
+      contactEmail: "areyes@ctxfooddrive.org",
+      contactPhone: "(512) 555-3004",
+      address: "900 E 11th St",
+      city: "Austin",
+      state: "TX",
+      zipCode: "78702",
+      preferredCategories: ["Canned", "Grains"],
+      totalDonationsCount: 8,
+      totalDonationsWeight: 3200,
+      lastDonationAt: now - 10 * DAY,
+      isActive: true,
+      createdAt: now - 120 * DAY,
     });
 
     // ── 6. Clients ────────────────────────────────────────────────────
@@ -790,6 +811,19 @@ export const seed = mutation({
       createdAt: now - DAY,
     });
 
+    await ctx.db.insert("inventoryAlerts", {
+      organizationId: orgId,
+      locationId: loc1,
+      inventoryItemId: inv10,
+      type: "Expired",
+      severity: "Critical",
+      title: "Expired: Greek Yogurt Cups",
+      message: "Greek Yogurt Cups at Main Warehouse have expired. 48 items need to be written off.",
+      isResolved: true,
+      resolvedAt: now - DAY,
+      createdAt: now - DAY,
+    });
+
     // ── 13. Notifications ─────────────────────────────────────────────
     await ctx.db.insert("notifications", {
       userId: user2,
@@ -859,6 +893,34 @@ export const seed = mutation({
     });
 
     console.log("Seed complete: 1 org, 3 locations, 5 users, 5 food categories, 3 donors, 5 clients, 3 batches, 10 inventory items, 2 distributions, 3 distribution records, 5 line items, 3 alerts, 3 notifications, 3 audit logs.");
+  },
+});
+
+export const updateClerkIds = internalMutation({
+  args: {
+    mappings: v.array(v.object({
+      oldClerkId: v.string(),
+      newClerkId: v.string(),
+    })),
+  },
+  handler: async (ctx, args) => {
+    for (const mapping of args.mappings) {
+      const user = await ctx.db
+        .query("users")
+        .withIndex("by_clerkId", (q) => q.eq("clerkId", mapping.oldClerkId))
+        .unique();
+      if (user) {
+        await ctx.db.patch(user._id, { clerkId: mapping.newClerkId });
+        console.log(`Updated ${user.name} clerkId to ${mapping.newClerkId}`);
+      }
+    }
+  },
+});
+
+export const listAllUsers = internalQuery({
+  args: {},
+  handler: async (ctx) => {
+    return await ctx.db.query("users").collect();
   },
 });
 

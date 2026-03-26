@@ -1,6 +1,7 @@
 "use client";
 
-import { useQuery } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
+
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,7 +11,7 @@ import { Calendar, Package } from "lucide-react";
 import type { Id } from "../../../convex/_generated/dataModel";
 
 export function ClientVisitHistory({ clientId }: { clientId: Id<"clients"> }) {
-  const logs = useQuery(api.auditLogs.listByEntity, {
+  const logs = useAuthedQuery(api.auditLogs.listByEntity, {
     entityType: "Client",
     entityId: clientId as string,
   });

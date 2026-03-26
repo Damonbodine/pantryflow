@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useQuery, useMutation } from "convex/react";
+import { useMutation } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -13,15 +14,15 @@ import { UserCheck, Search, AlertCircle } from "lucide-react";
 import type { Id } from "../../../convex/_generated/dataModel";
 
 export function CheckInView({ distributionId }: { distributionId: Id<"distributions"> }) {
-  const dist = useQuery(api.distributions.getById, { id: distributionId });
-  const records = useQuery(api.distributionRecords.listByDistribution, { distributionId });
+  const dist = useAuthedQuery(api.distributions.getById, { id: distributionId });
+  const records = useAuthedQuery(api.distributionRecords.listByDistribution, { distributionId });
   const checkIn = useMutation(api.distributionRecords.checkIn);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [isCheckingIn, setIsCheckingIn] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const searchResults = useQuery(
+  const searchResults = useAuthedQuery(
     api.clients.search,
     searchQuery.length >= 2 ? { query: searchQuery } : "skip"
   );

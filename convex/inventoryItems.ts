@@ -343,7 +343,12 @@ export const updateExpiredItems = internalMutation({
   args: {},
   handler: async (ctx) => {
     const now = Date.now();
-    const items = await ctx.db.query("inventoryItems").collect();
+    // Use the by_expirationDate index to only scan items with expiration dates,
+    // then filter for non-expired/non-written-off status in JS
+    const items = await ctx.db
+      .query("inventoryItems")
+      .withIndex("by_expirationDate")
+      .collect();
 
     for (const item of items) {
       if (!item.expirationDate) continue;

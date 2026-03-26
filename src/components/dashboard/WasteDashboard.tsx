@@ -1,6 +1,7 @@
 "use client";
 
-import { useQuery } from "convex/react";
+import { useAuthedQuery } from "@/hooks/use-authed-query";
+
 import { api } from "../../../convex/_generated/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LoadingSkeleton } from "@/components/shared/LoadingSkeleton";
@@ -9,8 +10,8 @@ import { Trash2, TrendingDown, ShieldCheck, AlertTriangle } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 export function WasteDashboard() {
-  const wasteStats = useQuery(api.dashboard.getWasteStats, {});
-  const expiringItems = useQuery(api.inventoryItems.listExpiring, { daysUntilExpiry: 14 });
+  const wasteStats = useAuthedQuery(api.dashboard.getWasteStats, {});
+  const expiringItems = useAuthedQuery(api.inventoryItems.listExpiring, { daysUntilExpiry: 14 });
 
   if (!wasteStats) return <LoadingSkeleton variant="dashboard" />;
 
