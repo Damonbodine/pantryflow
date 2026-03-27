@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as ai from "../ai.js";
 import type * as auditLogs from "../auditLogs.js";
 import type * as clients from "../clients.js";
 import type * as crons from "../crons.js";
@@ -34,6 +35,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  ai: typeof ai;
   auditLogs: typeof auditLogs;
   clients: typeof clients;
   crons: typeof crons;

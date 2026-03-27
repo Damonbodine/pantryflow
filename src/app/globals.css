@@ -24,13 +24,13 @@
   --color-input: hsl(32 24% 86%);
   --color-ring: hsl(24 76% 53%);
   --radius: 0.625rem;
-  --color-sidebar-background: hsl(24 30% 12%);
-  --color-sidebar-foreground: hsl(32 20% 85%);
+  --color-sidebar-background: hsl(37 100% 98%);
+  --color-sidebar-foreground: hsl(0 0% 25%);
   --color-sidebar-primary: hsl(24 76% 53%);
   --color-sidebar-primary-foreground: hsl(0 0% 100%);
-  --color-sidebar-accent: hsl(24 25% 20%);
-  --color-sidebar-accent-foreground: hsl(32 24% 90%);
-  --color-sidebar-border: hsl(24 18% 22%);
+  --color-sidebar-accent: hsl(32 30% 92%);
+  --color-sidebar-accent-foreground: hsl(0 0% 18%);
+  --color-sidebar-border: hsl(32 24% 86%);
   --color-sidebar-ring: hsl(24 76% 53%);
   --color-chart-1: hsl(24 76% 53%);
   --color-chart-2: hsl(150 44% 42%);

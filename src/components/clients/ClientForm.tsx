@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
+import { AiGenerateButton } from "@/components/ai-generate-button";
 
 const languageOptions = ["English", "Spanish", "Mandarin", "Vietnamese", "Arabic", "French", "Other"] as const;
 const incomeBracketOptions = ["Under15k", "15kTo25k", "25kTo35k", "35kTo50k", "Over50k", "PreferNotToSay"] as const;
@@ -517,7 +518,22 @@ export function ClientForm({ initialData }: ClientFormProps) {
           name="notes"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Notes</FormLabel>
+              <div className="flex items-center justify-between">
+                <FormLabel>Notes</FormLabel>
+                <AiGenerateButton
+                  fieldName="clientNotes"
+                  context={{
+                    firstName: form.getValues("firstName"),
+                    lastName: form.getValues("lastName"),
+                    householdSize: form.getValues("householdSize"),
+                    householdMinors: form.getValues("householdMinors"),
+                    householdSeniors: form.getValues("householdSeniors"),
+                    dietaryRestrictions: form.getValues("dietaryRestrictions"),
+                    preferredLanguage: form.getValues("preferredLanguage"),
+                  }}
+                  onGenerated={(text) => form.setValue("notes", text)}
+                />
+              </div>
               <FormControl>
                 <Textarea placeholder="Internal notes about this household" {...field} />
               </FormControl>

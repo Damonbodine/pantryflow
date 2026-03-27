@@ -29,6 +29,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { AiGenerateButton } from "@/components/ai-generate-button";
 
 const donationFormSchema = z.object({
   donorId: z.string().min(1, "Donor is required"),
@@ -313,7 +314,20 @@ export function DonationForm({ initialData }: DonationFormProps) {
           name="notes"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Notes</FormLabel>
+              <div className="flex items-center justify-between">
+                <FormLabel>Notes</FormLabel>
+                <AiGenerateButton
+                  fieldName="donationNotes"
+                  context={{
+                    condition: form.getValues("condition"),
+                    storageAssignment: form.getValues("storageAssignment"),
+                    totalWeightLbs: form.getValues("totalWeightLbs"),
+                    itemCount: form.getValues("itemCount"),
+                    temperatureVerified: form.getValues("temperatureVerified"),
+                  }}
+                  onGenerated={(text) => form.setValue("notes", text)}
+                />
+              </div>
               <FormControl>
                 <Textarea placeholder="Optional notes about this donation" {...field} />
               </FormControl>

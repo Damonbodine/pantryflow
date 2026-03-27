@@ -29,6 +29,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { AiGenerateButton } from "@/components/ai-generate-button";
 
 const distributionTypeOptions = ["WalkIn", "DriveThrough", "Delivery", "PopUp"] as const;
 const distributionTypeLabels: Record<string, string> = {
@@ -335,7 +336,19 @@ export function DistributionForm({ initialData }: DistributionFormProps) {
           name="notes"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Notes</FormLabel>
+              <div className="flex items-center justify-between">
+                <FormLabel>Notes</FormLabel>
+                <AiGenerateButton
+                  fieldName="distributionNotes"
+                  context={{
+                    name: form.getValues("name"),
+                    type: form.getValues("type"),
+                    scheduledDate: form.getValues("scheduledDate"),
+                    estimatedClients: form.getValues("estimatedClients"),
+                  }}
+                  onGenerated={(text) => form.setValue("notes", text)}
+                />
+              </div>
               <FormControl>
                 <Textarea placeholder="Event notes or special instructions" {...field} />
               </FormControl>

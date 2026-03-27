@@ -114,9 +114,9 @@ export const seed = internalMutation({
 
     // ── 3. Users ──────────────────────────────────────────────────────
     const user1 = await ctx.db.insert("users", {
-      clerkId: "user_3BUBIHEfymSwNz8r2MMtg1Gq1zf",
-      name: "Maria Gonzalez",
-      email: "maria@austinfoodbank.org",
+      clerkId: "user_3BV4YzajQ96nGS3hlBDld9VcLa8",
+      name: "Demo User",
+      email: "demo@factory512.dev",
       phone: "(512) 555-1001",
       role: "Admin",
       organizationId: orgId,

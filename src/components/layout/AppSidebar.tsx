@@ -64,6 +64,7 @@ export function AppSidebar() {
                 <SidebarMenuButton
                   render={<Link href={item.href} className="min-h-touch" />}
                   isActive={pathname === item.href || (item.href !== "/dashboard" && pathname.startsWith(item.href))}
+                  className=""
                 >
                   <item.icon className="h-4 w-4" />
                   <span>{item.label}</span>
@@ -80,6 +81,7 @@ export function AppSidebar() {
                 <SidebarMenuButton
                   render={<Link href={item.href} className="min-h-touch" />}
                   isActive={pathname === item.href}
+                  className=""
                 >
                   <item.icon className="h-4 w-4" />
                   <span>{item.label}</span>
