@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import { ClientForm } from "@/components/clients/ClientForm";
 import { use } from "react";
 

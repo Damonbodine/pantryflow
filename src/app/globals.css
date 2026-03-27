@@ -1,157 +1,121 @@
+/* Factory512 Unified Design System — PantryFlow (Green)
+ *
+ * Dark mode with oklch tokens. Tailwind v4 syntax.
+ */
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: hsl(37 100% 98%);
-  --color-foreground: hsl(0 0% 18%);
-  --color-card: hsl(0 0% 100%);
-  --color-card-foreground: hsl(0 0% 18%);
-  --color-popover: hsl(0 0% 100%);
-  --color-popover-foreground: hsl(0 0% 18%);
-  --color-primary: hsl(24 76% 53%);
-  --color-primary-foreground: hsl(0 0% 100%);
-  --color-secondary: hsl(150 44% 42%);
-  --color-secondary-foreground: hsl(0 0% 100%);
-  --color-muted: hsl(32 30% 94%);
-  --color-muted-foreground: hsl(0 0% 42%);
-  --color-accent: hsl(333 61% 34%);
-  --color-accent-foreground: hsl(0 0% 100%);
-  --color-destructive: hsl(333 61% 34%);
-  --color-destructive-foreground: hsl(0 0% 100%);
-  --color-border: hsl(32 24% 86%);
-  --color-input: hsl(32 24% 86%);
-  --color-ring: hsl(24 76% 53%);
-  --radius: 0.5rem;
-  --color-sidebar-background: hsl(37 100% 98%);
-  --color-sidebar-foreground: hsl(0 0% 25%);
-  --color-sidebar-primary: hsl(24 76% 53%);
-  --color-sidebar-primary-foreground: hsl(0 0% 100%);
-  --color-sidebar-accent: hsl(32 30% 92%);
-  --color-sidebar-accent-foreground: hsl(0 0% 18%);
-  --color-sidebar-border: hsl(32 24% 86%);
-  --color-sidebar-ring: hsl(24 76% 53%);
-  --color-chart-1: hsl(24 76% 53%);
-  --color-chart-2: hsl(150 44% 42%);
-  --color-chart-3: hsl(333 61% 34%);
-  --color-chart-4: hsl(38 92% 50%);
-  --color-chart-5: hsl(0 84% 60%);
+  /* ─── Base Palette ──────────────────────────────────── */
+  --color-background: oklch(0.145 0.014 260);
+  --color-foreground: oklch(0.93 0.006 260);
 
-  --color-warm-white: hsl(37 100% 98%);
-  --color-harvest-orange: hsl(24 76% 53%);
-  --color-fresh-green: hsl(150 44% 42%);
-  --color-deep-berry: hsl(333 61% 34%);
-  --color-charcoal: hsl(0 0% 18%);
-  --color-warm-gray: hsl(0 0% 42%);
-  --color-status-instock: hsl(150 44% 42%);
-  --color-status-low: hsl(38 92% 50%);
-  --color-status-critical: hsl(0 84% 60%);
-  --color-status-expired: hsl(333 61% 34%);
-  --color-status-writtenoff: hsl(218 11% 65%);
+  /* ─── Cards & Surfaces ─────────────────────────────── */
+  --color-card: oklch(0.178 0.014 260);
+  --color-card-foreground: oklch(0.93 0.006 260);
+  --color-popover: oklch(0.178 0.014 260);
+  --color-popover-foreground: oklch(0.93 0.006 260);
 
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  /* ─── Primary (PantryFlow Green) ───────────────────── */
+  --color-primary: oklch(0.68 0.17 145);
+  --color-primary-foreground: oklch(0.98 0.005 260);
 
-  --shadow-warm: 0 2px 8px rgba(224, 122, 47, 0.08);
-  --shadow-warm-md: 0 4px 12px rgba(224, 122, 47, 0.12);
-  --shadow-warm-lg: 0 8px 24px rgba(224, 122, 47, 0.16);
+  /* ─── Secondary ────────────────────────────────────── */
+  --color-secondary: oklch(0.22 0.014 260);
+  --color-secondary-foreground: oklch(0.88 0.006 260);
 
-  --spacing-touch: 48px;
+  /* ─── Muted ────────────────────────────────────────── */
+  --color-muted: oklch(0.21 0.012 260);
+  --color-muted-foreground: oklch(0.60 0.01 260);
 
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
+  /* ─── Accent ───────────────────────────────────────── */
+  --color-accent: oklch(0.22 0.014 260);
+  --color-accent-foreground: oklch(0.93 0.006 260);
 
-  @keyframes accordion-down {
-    from { height: 0; }
-    to { height: var(--radix-accordion-content-height); }
+  /* ─── Destructive ──────────────────────────────────── */
+  --color-destructive: oklch(0.55 0.2 25);
+  --color-destructive-foreground: oklch(0.98 0.005 25);
+
+  /* ─── Borders & Inputs ─────────────────────────────── */
+  --color-border: oklch(0.26 0.012 260);
+  --color-input: oklch(0.26 0.012 260);
+  --color-ring: oklch(0.68 0.17 145);
+
+  /* ─── Sidebar ──────────────────────────────────────── */
+  --color-sidebar: oklch(0.16 0.014 260);
+  --color-sidebar-foreground: oklch(0.88 0.006 260);
+  --color-sidebar-primary: oklch(0.68 0.17 145);
+  --color-sidebar-primary-foreground: oklch(0.98 0.005 260);
+  --color-sidebar-accent: oklch(0.22 0.018 260);
+  --color-sidebar-accent-foreground: oklch(0.93 0.006 260);
+  --color-sidebar-border: oklch(0.24 0.012 260);
+  --color-sidebar-ring: oklch(0.68 0.17 145);
+
+  /* ─── Chart Colors ─────────────────────────────────── */
+  --color-chart-1: oklch(0.65 0.18 250);
+  --color-chart-2: oklch(0.70 0.16 160);
+  --color-chart-3: oklch(0.72 0.15 85);
+  --color-chart-4: oklch(0.60 0.20 25);
+  --color-chart-5: oklch(0.65 0.18 310);
+
+  /* ─── Semantic Status Colors ───────────────────────── */
+  --color-success: oklch(0.65 0.17 150);
+  --color-success-foreground: oklch(0.98 0.005 150);
+  --color-warning: oklch(0.75 0.15 85);
+  --color-warning-foreground: oklch(0.20 0.02 85);
+  --color-info: oklch(0.65 0.15 240);
+  --color-info-foreground: oklch(0.98 0.005 240);
+
+  /* ─── Radius ───────────────────────────────────────── */
+  --radius: 0.625rem;
+
+  /* ─── Fonts ────────────────────────────────────────── */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* ─── PantryFlow Status Colors (legacy compat) ─────── */
+  --color-status-instock: oklch(0.65 0.17 150);
+  --color-status-low: oklch(0.75 0.15 85);
+  --color-status-critical: oklch(0.55 0.2 25);
+  --color-status-expired: oklch(0.55 0.18 330);
+  --color-status-writtenoff: oklch(0.55 0.01 260);
+
+  /* ─── PantryFlow Shadows ───────────────────────────── */
+  --shadow-warm: 0 2px 8px oklch(0.68 0.17 145 / 0.08);
+  --shadow-warm-md: 0 4px 12px oklch(0.68 0.17 145 / 0.12);
+  --shadow-warm-lg: 0 8px 24px oklch(0.68 0.17 145 / 0.16);
+}
+
+/* ─── Base Styles ──────────────────────────────────────── */
+
+@layer base {
+  * {
+    @apply border-border;
   }
-
-  @keyframes accordion-up {
-    from { height: var(--radix-accordion-content-height); }
-    to { height: 0; }
+  body {
+    @apply bg-background text-foreground antialiased;
   }
 }
 
-.dark {
-  --color-background: hsl(20 14% 8%);
-  --color-foreground: hsl(37 20% 90%);
-  --color-card: hsl(20 12% 12%);
-  --color-card-foreground: hsl(37 20% 90%);
-  --color-popover: hsl(20 12% 12%);
-  --color-popover-foreground: hsl(37 20% 90%);
-  --color-primary: hsl(24 76% 53%);
-  --color-primary-foreground: hsl(0 0% 100%);
-  --color-secondary: hsl(150 44% 35%);
-  --color-secondary-foreground: hsl(0 0% 100%);
-  --color-muted: hsl(20 10% 18%);
-  --color-muted-foreground: hsl(32 15% 60%);
-  --color-accent: hsl(333 50% 40%);
-  --color-accent-foreground: hsl(0 0% 100%);
-  --color-destructive: hsl(333 50% 40%);
-  --color-destructive-foreground: hsl(0 0% 100%);
-  --color-border: hsl(20 10% 22%);
-  --color-input: hsl(20 10% 22%);
-  --color-ring: hsl(24 76% 53%);
-  --color-sidebar-background: hsl(20 14% 6%);
-  --color-sidebar-foreground: hsl(32 20% 85%);
-  --color-sidebar-primary: hsl(24 76% 53%);
-  --color-sidebar-primary-foreground: hsl(0 0% 100%);
-  --color-sidebar-accent: hsl(20 12% 14%);
-  --color-sidebar-accent-foreground: hsl(32 24% 90%);
-  --color-sidebar-border: hsl(20 10% 16%);
-  --color-sidebar-ring: hsl(24 76% 53%);
-  --color-chart-1: hsl(24 76% 58%);
-  --color-chart-2: hsl(150 44% 48%);
-  --color-chart-3: hsl(333 50% 45%);
-  --color-chart-4: hsl(38 92% 55%);
-  --color-chart-5: hsl(0 84% 65%);
-}
+/* ─── Status Badge Utilities ───────────────────────────── */
 
-* {
-  border-color: var(--color-border);
-}
-
-body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1 {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-}
-
-h2 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-}
-
-h3 {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-}
-
-h4 {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-}
-
-/* Elegant SaaS Refinements */
-.card, [data-sidebar="sidebar"] {
-  border: none !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
-  background-color: hsl(0 0% 100%) !important;
-}
-table th, table td {
-  border-bottom: 1px solid hsl(var(--border)) !important;
+@layer components {
+  .badge-success {
+    @apply bg-success/15 text-success border-success/25;
+  }
+  .badge-warning {
+    @apply bg-warning/15 text-warning border-warning/25;
+  }
+  .badge-destructive {
+    @apply bg-destructive/15 text-destructive border-destructive/25;
+  }
+  .badge-info {
+    @apply bg-info/15 text-info border-info/25;
+  }
+  .badge-muted {
+    @apply bg-muted text-muted-foreground border-border;
+  }
 }

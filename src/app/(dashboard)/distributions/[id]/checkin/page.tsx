@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import { CheckInView } from "@/components/distributions/CheckInView";
 import { use } from "react";
 import type { Id } from "../../../../../../convex/_generated/dataModel";

@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import { ClientDetail } from "@/components/clients/ClientDetail";
 import { use } from "react";
 import { Id } from "../../../../../convex/_generated/dataModel";
