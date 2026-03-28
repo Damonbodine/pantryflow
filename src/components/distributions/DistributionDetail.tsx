@@ -13,6 +13,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Play, CheckCircle, UserCheck, Package } from "lucide-react";
 import type { Id } from "../../../convex/_generated/dataModel";
+import { DistributionPlanAI } from "@/components/ai/DistributionPlanAI";
 
 export function DistributionDetail({ distributionId }: { distributionId: Id<"distributions"> }) {
   const dist = useAuthedQuery(api.distributions.getById, { id: distributionId });
@@ -97,6 +98,9 @@ export function DistributionDetail({ distributionId }: { distributionId: Id<"dis
           </CardContent>
         </Card>
       </div>
+
+      {/* AI Distribution Planner */}
+      <DistributionPlanAI distributionId={distributionId} />
 
       {/* Distribution Records */}
       <Card className="shadow-warm">

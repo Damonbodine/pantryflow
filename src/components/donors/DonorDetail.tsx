@@ -12,6 +12,7 @@ import { EmptyState } from "@/components/shared/EmptyState";
 import Link from "next/link";
 import { Pencil, Gift, Phone, Mail, MapPin } from "lucide-react";
 import type { Id } from "../../../convex/_generated/dataModel";
+import { DonorThankYou } from "@/components/ai/DonorThankYou";
 
 export function DonorDetail({ donorId }: { donorId: Id<"donors"> }) {
   const donor = useAuthedQuery(api.donors.getById, { id: donorId });
@@ -29,11 +30,14 @@ export function DonorDetail({ donorId }: { donorId: Id<"donors"> }) {
             <Badge variant={donor.isActive ? "default" : "secondary"}>{donor.isActive ? "Active" : "Inactive"}</Badge>
           </div>
         </div>
-        <Button variant="outline" asChild>
-          <Link href={`/donors/${donorId}/edit`}>
-            <Pencil className="mr-2 h-4 w-4" /> Edit
-          </Link>
-        </Button>
+        <div className="flex items-center gap-2">
+          <DonorThankYou donorId={donorId} />
+          <Button variant="outline" asChild>
+            <Link href={`/donors/${donorId}/edit`}>
+              <Pencil className="mr-2 h-4 w-4" /> Edit
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">

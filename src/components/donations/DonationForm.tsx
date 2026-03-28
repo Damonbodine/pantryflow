@@ -30,11 +30,13 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { AiGenerateButton } from "@/components/ai-generate-button";
+import { DonationCategorizer } from "@/components/ai/DonationCategorizer";
 
 const donationFormSchema = z.object({
   donorId: z.string().min(1, "Donor is required"),
   locationId: z.string().min(1, "Location is required"),
   receivedAt: z.string().min(1, "Received date is required"),
+  description: z.string().optional(),
   totalWeightLbs: z.coerce.number().min(0.1, "Weight must be at least 0.1 lbs"),
   itemCount: z.coerce.number().int().min(1, "At least 1 item required"),
   condition: z.enum(["Excellent", "Good", "Fair", "NearExpiry"]),
@@ -93,6 +95,7 @@ export function DonationForm({ initialData }: DonationFormProps) {
           donorId: "",
           locationId: "",
           receivedAt: new Date().toISOString().split("T")[0],
+          description: "",
           totalWeightLbs: 0,
           itemCount: 1,
           condition: "Good",
@@ -206,6 +209,40 @@ export function DonationForm({ initialData }: DonationFormProps) {
                 <Input type="date" {...field} />
               </FormControl>
               <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="description"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Item Description</FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder="Describe the donated items (e.g., '50 cans of soup, 20 boxes of cereal, 10 gallons of milk')"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+              <DonationCategorizer
+                description={field.value ?? ""}
+                onCategorized={(result) => {
+                  if (result.storageType) {
+                    const storageMap: Record<string, string> = {
+                      Dry: "Dry",
+                      Refrigerated: "Refrigerated",
+                      Frozen: "Frozen",
+                    };
+                    const mapped = storageMap[result.storageType];
+                    if (mapped) form.setValue("storageAssignment", mapped as DonationFormValues["storageAssignment"]);
+                  }
+                  if (result.estimatedWeightLbs) {
+                    form.setValue("totalWeightLbs", result.estimatedWeightLbs);
+                  }
+                }}
+              />
             </FormItem>
           )}
         />

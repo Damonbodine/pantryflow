@@ -11,6 +11,7 @@ import { LoadingSkeleton } from "@/components/shared/LoadingSkeleton";
 import { EmptyState } from "@/components/shared/EmptyState";
 import Link from "next/link";
 import { Package, AlertTriangle, Gift, Truck, Plus, ArrowRight } from "lucide-react";
+import { InventoryInsightWidget } from "@/components/ai/InventoryInsightWidget";
 
 export function InventoryDashboard() {
   const stats = useAuthedQuery(api.dashboard.getInventoryStats, {});
@@ -126,6 +127,9 @@ export function InventoryDashboard() {
           </CardContent>
         </Card>
       )}
+
+      {/* AI Inventory Insights */}
+      <InventoryInsightWidget />
 
       {/* Alerts Feed */}
       <Card className="shadow-warm">
