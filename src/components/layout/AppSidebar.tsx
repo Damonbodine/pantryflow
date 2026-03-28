@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import {
   Sidebar,
   SidebarContent,
@@ -26,6 +26,7 @@ import {
   BarChart3,
   Leaf,
 } from "lucide-react";
+import { withPreservedDemoQuery } from "@/lib/demo";
 
 const mainNav = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -46,11 +47,12 @@ const analyticsNav = [
 
 export function AppSidebar() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   return (
     <Sidebar className="border-r border-border">
       <SidebarHeader className="px-4 py-4">
-        <Link href="/dashboard" className="flex items-center gap-2">
+        <Link href={withPreservedDemoQuery("/dashboard", searchParams)} className="flex items-center gap-2">
           <Package className="h-7 w-7 text-primary" />
           <span className="text-xl font-bold text-foreground">PantryFlow</span>
         </Link>
@@ -62,7 +64,7 @@ export function AppSidebar() {
             {mainNav.map((item) => (
               <SidebarMenuItem key={item.href}>
                 <SidebarMenuButton
-                  render={<Link href={item.href} className="min-h-touch" />}
+                  render={<Link href={withPreservedDemoQuery(item.href, searchParams)} className="min-h-touch" />}
                   isActive={pathname === item.href || (item.href !== "/dashboard" && pathname.startsWith(item.href))}
                   className=""
                 >
@@ -79,7 +81,7 @@ export function AppSidebar() {
             {analyticsNav.map((item) => (
               <SidebarMenuItem key={item.href}>
                 <SidebarMenuButton
-                  render={<Link href={item.href} className="min-h-touch" />}
+                  render={<Link href={withPreservedDemoQuery(item.href, searchParams)} className="min-h-touch" />}
                   isActive={pathname === item.href}
                   className=""
                 >

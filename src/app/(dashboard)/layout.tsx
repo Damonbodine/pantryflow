@@ -5,6 +5,7 @@ import { AppSidebar } from "@/components/layout/AppSidebar";
 import { AppHeader } from "@/components/layout/AppHeader";
 import { Authenticated, AuthLoading } from "convex/react";
 import { LoadingSkeleton } from "@/components/shared/LoadingSkeleton";
+import { DemoMode } from "@/components/demo-mode";
 
 export default function DashboardLayout({
   children,
@@ -24,6 +25,7 @@ export default function DashboardLayout({
           <div className="flex flex-1 flex-col">
             <AppHeader />
             <main className="flex-1 p-6 bg-background">{children}</main>
+            <DemoMode />
           </div>
         </Authenticated>
       </div>

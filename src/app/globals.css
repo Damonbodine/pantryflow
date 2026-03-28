@@ -119,3 +119,12 @@
     @apply bg-muted text-muted-foreground border-border;
   }
 }
+
+[data-demo-active="true"] {
+  position: relative;
+  border-radius: calc(var(--radius) + 6px);
+  box-shadow:
+    0 0 0 2px color-mix(in oklch, var(--color-primary) 70%, transparent),
+    0 0 0 8px color-mix(in oklch, var(--color-primary) 18%, transparent),
+    0 18px 50px color-mix(in oklch, var(--color-primary) 16%, transparent);
+}

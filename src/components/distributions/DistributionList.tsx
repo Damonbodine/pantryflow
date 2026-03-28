@@ -12,7 +12,9 @@ import { LoadingSkeleton } from "@/components/shared/LoadingSkeleton";
 import { EmptyState } from "@/components/shared/EmptyState";
 import { DataTablePagination } from "@/components/shared/DataTablePagination";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Plus, Eye, UserCheck } from "lucide-react";
+import { withPreservedDemoQuery } from "@/lib/demo";
 
 const distStatuses = ["Scheduled", "Active", "Completed", "Cancelled"] as const;
 
@@ -20,6 +22,7 @@ export function DistributionList() {
   const [status, setStatus] = useState<string>("all");
   const [page, setPage] = useState(0);
   const pageSize = 20;
+  const searchParams = useSearchParams();
 
   const distributions = useAuthedQuery(api.distributions.list, {
     ...(status !== "all" ? { status: status as any } : {}),
@@ -41,7 +44,7 @@ export function DistributionList() {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4" data-demo="distribution-list">
       <div className="flex items-center justify-between">
         <Select value={status} onValueChange={(v: string | null) => { setStatus(v ?? ""); setPage(0); }}>
           <SelectTrigger className="w-[150px]">
@@ -55,7 +58,7 @@ export function DistributionList() {
           </SelectContent>
         </Select>
         <Button asChild>
-          <Link href="/distributions/new">
+          <Link href={withPreservedDemoQuery("/distributions/new", searchParams)}>
             <Plus className="mr-2 h-4 w-4" /> New Distribution
           </Link>
         </Button>
@@ -93,13 +96,13 @@ export function DistributionList() {
                   <TableCell>
                     <div className="flex gap-1">
                       <Button variant="ghost" size="icon" asChild>
-                        <Link href={`/distributions/${dist._id}`}>
+                        <Link href={withPreservedDemoQuery(`/distributions/${dist._id}`, searchParams)}>
                           <Eye className="h-4 w-4" />
                         </Link>
                       </Button>
                       {(dist.status === "Active" || dist.status === "Scheduled") && (
                         <Button variant="ghost" size="icon" asChild>
-                          <Link href={`/distributions/${dist._id}/check-in`}>
+                          <Link href={withPreservedDemoQuery(`/distributions/${dist._id}/check-in`, searchParams)}>
                             <UserCheck className="h-4 w-4" />
                           </Link>
                         </Button>

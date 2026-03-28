@@ -45,7 +45,7 @@ export function DistributionDetail({ distributionId }: { distributionId: Id<"dis
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" data-demo="distribution-detail">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">{dist.name}</h1>

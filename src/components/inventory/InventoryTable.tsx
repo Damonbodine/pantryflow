@@ -12,7 +12,9 @@ import { DataTablePagination } from "@/components/shared/DataTablePagination";
 import { LoadingSkeleton } from "@/components/shared/LoadingSkeleton";
 import { EmptyState } from "@/components/shared/EmptyState";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Eye, ArrowLeftRight } from "lucide-react";
+import { withPreservedDemoQuery } from "@/lib/demo";
 
 const categories = ["Produce", "Dairy", "Protein", "Grains", "Canned", "Beverages", "Snacks", "PreparedMeals", "HygieneNonFood", "Baby", "Other"] as const;
 const statuses = ["InStock", "Low", "Critical", "Expired", "WrittenOff"] as const;
@@ -24,6 +26,7 @@ export function InventoryTable() {
   const [storageType, setStorageType] = useState<string>("all");
   const [page, setPage] = useState(0);
   const pageSize = 20;
+  const searchParams = useSearchParams();
 
   const items = useAuthedQuery(api.inventoryItems.list, {
     ...(category !== "all" ? { category: category as any } : {}),
@@ -37,7 +40,7 @@ export function InventoryTable() {
   const totalPages = Math.ceil(items.length / pageSize);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4" data-demo="inventory-list">
       {/* Filters */}
       <div className="flex flex-wrap gap-3">
         <Select value={category} onValueChange={(v: string | null) => { setCategory(v ?? ""); setPage(0); }}>
@@ -78,7 +81,7 @@ export function InventoryTable() {
 
         <div className="ml-auto flex gap-2">
           <Button variant="outline" asChild>
-            <Link href="/inventory/transfer">
+            <Link href={withPreservedDemoQuery("/inventory/transfer", searchParams)}>
               <ArrowLeftRight className="mr-2 h-4 w-4" /> Transfer
             </Link>
           </Button>
@@ -117,7 +120,7 @@ export function InventoryTable() {
                   <TableCell><StatusBadge status={item.status} /></TableCell>
                   <TableCell>
                     <Button variant="ghost" size="icon" asChild>
-                      <Link href={`/inventory/${item._id}`}>
+                      <Link href={withPreservedDemoQuery(`/inventory/${item._id}`, searchParams)}>
                         <Eye className="h-4 w-4" />
                       </Link>
                     </Button>

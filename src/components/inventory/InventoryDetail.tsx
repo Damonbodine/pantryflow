@@ -11,10 +11,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Pencil, Trash2, ArrowLeftRight } from "lucide-react";
 import type { Id } from "../../../convex/_generated/dataModel";
+import { withPreservedDemoQuery } from "@/lib/demo";
 
 const writeOffReasons = ["Expired", "Damaged", "Recalled", "Other"] as const;
 
@@ -22,6 +23,7 @@ export function InventoryDetail({ itemId }: { itemId: Id<"inventoryItems"> }) {
   const item = useAuthedQuery(api.inventoryItems.getById, { id: itemId });
   const writeOff = useMutation(api.inventoryItems.writeOff);
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [writeOffReason, setWriteOffReason] = useState<string>("Expired");
   const [isWritingOff, setIsWritingOff] = useState(false);
 
@@ -38,7 +40,7 @@ export function InventoryDetail({ itemId }: { itemId: Id<"inventoryItems"> }) {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" data-demo="inventory-detail">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">{item.name}</h1>
@@ -46,12 +48,12 @@ export function InventoryDetail({ itemId }: { itemId: Id<"inventoryItems"> }) {
         </div>
         <div className="flex gap-2">
           <Button variant="outline" asChild>
-            <Link href={`/inventory/${itemId}/edit`}>
+            <Link href={withPreservedDemoQuery(`/inventory/${itemId}/edit`, searchParams)}>
               <Pencil className="mr-2 h-4 w-4" /> Edit
             </Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href={`/inventory/transfer?itemId=${itemId}`}>
+            <Link href={withPreservedDemoQuery(`/inventory/transfer?itemId=${itemId}`, searchParams)}>
               <ArrowLeftRight className="mr-2 h-4 w-4" /> Transfer
             </Link>
           </Button>

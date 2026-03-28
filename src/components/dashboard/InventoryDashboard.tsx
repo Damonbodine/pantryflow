@@ -12,6 +12,7 @@ import { EmptyState } from "@/components/shared/EmptyState";
 import Link from "next/link";
 import { Package, AlertTriangle, Gift, Truck, Plus, ArrowRight } from "lucide-react";
 import { InventoryInsightWidget } from "@/components/ai/InventoryInsightWidget";
+import { DemoModeStartButton } from "@/components/demo-mode";
 
 export function InventoryDashboard() {
   const stats = useAuthedQuery(api.dashboard.getInventoryStats, {});
@@ -20,13 +21,14 @@ export function InventoryDashboard() {
   if (!stats) return <LoadingSkeleton variant="dashboard" />;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" data-demo="dashboard-overview">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Dashboard</h1>
           <p className="text-sm text-muted-foreground">Overview of your food pantry operations</p>
         </div>
         <div className="flex gap-2">
+          <DemoModeStartButton />
           <Button asChild>
             <Link href="/donations/new">
               <Plus className="mr-2 h-4 w-4" /> New Donation
@@ -41,7 +43,7 @@ export function InventoryDashboard() {
       </div>
 
       {/* Stat Cards */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4" data-demo="dashboard-stats">
         <Card className="shadow-warm">
           <CardContent className="pt-6">
             <div className="flex items-center gap-3">
@@ -129,7 +131,9 @@ export function InventoryDashboard() {
       )}
 
       {/* AI Inventory Insights */}
-      <InventoryInsightWidget />
+      <div data-demo="inventory-insights">
+        <InventoryInsightWidget />
+      </div>
 
       {/* Alerts Feed */}
       <Card className="shadow-warm">
