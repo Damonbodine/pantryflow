@@ -21,6 +21,7 @@ type DemoStep = {
   whyItMatters: string;
   routePrefix: string;
   target?: string;
+  actionTarget?: string;
   actionLabel?: string;
 };
 
@@ -90,6 +91,7 @@ const PANTRYFLOW_SCENARIO: DemoScenario = {
         "This demonstrates the system can support real warehouse decisions, not just category-level summaries.",
       routePrefix: "/inventory/",
       target: "[data-demo='inventory-detail']",
+      actionTarget: "[data-demo='primary-inventory-link']",
     },
     {
       id: "distribution-list",
@@ -111,6 +113,7 @@ const PANTRYFLOW_SCENARIO: DemoScenario = {
         "This is the proof point that PantryFlow supports real service delivery, not just inventory intake.",
       routePrefix: "/distributions/",
       target: "[data-demo='distribution-detail']",
+      actionTarget: "[data-demo='primary-distribution-link']",
     },
   ],
 };
@@ -194,6 +197,15 @@ export function DemoMode() {
 
   function nextStep() {
     if (!onExpectedRoute) {
+      const actionElement = activeStep.actionTarget
+        ? document.querySelector<HTMLElement>(activeStep.actionTarget)
+        : null;
+
+      if (actionElement) {
+        actionElement.click();
+        return;
+      }
+
       const params = new URLSearchParams(searchParams.toString());
       params.set("demo", activeScenario.id);
       params.set("step", String(stepIndex + 1));
@@ -203,7 +215,11 @@ export function DemoMode() {
       router.push(`${route}?${params.toString()}`);
       return;
     }
-    if (!isLastStep) setStepIndex((prev) => prev + 1);
+    if (isLastStep) {
+      exitDemo();
+      return;
+    }
+    setStepIndex((prev) => prev + 1);
   }
 
   function previousStep() {

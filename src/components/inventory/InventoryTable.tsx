@@ -107,7 +107,7 @@ export function InventoryTable() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {paginatedItems.map((item) => (
+              {paginatedItems.map((item, index) => (
                 <TableRow key={item._id}>
                   <TableCell className="font-medium">{item.name}</TableCell>
                   <TableCell className="text-muted-foreground">{item.category}</TableCell>
@@ -120,7 +120,10 @@ export function InventoryTable() {
                   <TableCell><StatusBadge status={item.status} /></TableCell>
                   <TableCell>
                     <Button variant="ghost" size="icon" asChild>
-                      <Link href={withPreservedDemoQuery(`/inventory/${item._id}`, searchParams)}>
+                      <Link
+                        href={withPreservedDemoQuery(`/inventory/${item._id}`, searchParams)}
+                        data-demo={index === 0 ? "primary-inventory-link" : undefined}
+                      >
                         <Eye className="h-4 w-4" />
                       </Link>
                     </Button>

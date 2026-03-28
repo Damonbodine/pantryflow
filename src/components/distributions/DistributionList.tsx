@@ -81,7 +81,7 @@ export function DistributionList() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {paginatedDists.map((dist) => (
+              {paginatedDists.map((dist, index) => (
                 <TableRow key={dist._id}>
                   <TableCell className="font-medium">{dist.name}</TableCell>
                   <TableCell className="text-muted-foreground">
@@ -96,7 +96,10 @@ export function DistributionList() {
                   <TableCell>
                     <div className="flex gap-1">
                       <Button variant="ghost" size="icon" asChild>
-                        <Link href={withPreservedDemoQuery(`/distributions/${dist._id}`, searchParams)}>
+                        <Link
+                          href={withPreservedDemoQuery(`/distributions/${dist._id}`, searchParams)}
+                          data-demo={index === 0 ? "primary-distribution-link" : undefined}
+                        >
                           <Eye className="h-4 w-4" />
                         </Link>
                       </Button>
